@@ -59,6 +59,7 @@ public class CatalogFragment extends Fragment {
             public void onSuccess (String result){
                 String url =  VideoUrl.getUrl(result);
                 if(Geolocation.checkLocation(url)) {
+                    String cookie = Cookies.getCookie(Cookies.LOGIN, getActivity());
                     Intent intent = new Intent(getActivity(), FullscreenPlaybackActivity.class);
                     intent.putExtra(VideoData.NAME_OF_INTENT_EXTRA, videoData);
                     intent.putExtra(VideoData.NAME_OF_URL, url);
